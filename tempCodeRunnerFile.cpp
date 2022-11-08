@@ -1,3 +1,2 @@
-Complex(){
-    //     cout<<"Default constructor is called" <<endl;
-    // }
+int GetNum(){return num;}
+    int GetDen(){return den;}

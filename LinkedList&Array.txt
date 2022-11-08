@@ -1,0 +1,7 @@
+Arrays:
+
+Chrachterstics:
+1.contiguous
+2.Size is set
+3. All elements must be of same type
+4. Whenver we allocated (statically or dynamically)
