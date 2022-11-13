@@ -1,2 +1,3 @@
-int GetNum(){return num;}
-    int GetDen(){return den;}
+ // cout<<"Removing odd Node is :"<<endl;
+    // list.RemoveOddNode();
+    // list.Print();

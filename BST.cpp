@@ -15,8 +15,8 @@ class BNode
 class BST
 {
     BNode *root;
-    bool InsertHelper(BNode *subroot, int item);
-    bool PrintInOrderHelper(BNode *subroot);
+    bool InsertHelper(BNode *&subroot, int item);
+    void PrintInOrderHelper(BNode *subroot) const;
 
 public:
     BST();
@@ -24,15 +24,72 @@ public:
     void PrintInOrder() const;
 };
 
-BNode::BNode() : {}
-BNode::BNode(int d) {}
-BNode::BNode(int d, BNode *l, BNode *r) {}
+BNode::BNode() : left(nullptr), right(nullptr) {}
+BNode::BNode(int d) : data(d), left(nullptr), right(nullptr) {}
+BNode::BNode(int d, BNode *l, BNode *r) : data(d), left(nullptr), right(nullptr) {}
 
-bool BST::InsertHelper() {}
-bool BST::InsertHelper(BNode *subroot, int item) {}
-bool BST::PrintInOrderHelper(BNode *subroot) {}
+BST::BST() : root(nullptr) {}
+
+bool BST:: InsertHelper(BNode *&subroot, int item)
+{
+    // insert at root
+    if (subroot == nullptr)
+    {
+        subroot = new BNode(item, nullptr, nullptr);
+        return true;
+    }
+    else if (item == subroot->data)
+    { // don't insert if duplicate
+        cout << "NO DUPLICATES" << endl;
+        return false;
+    }
+    else if (item < subroot->data) // insert to the left of node
+    {
+        InsertHelper( subroot->left, item);
+    }
+    else
+    { // insert to the right of node
+        InsertHelper(item, subroot->right, item);
+    }
+}
+
+bool BST::Insert(int item)
+{
+    return InsertHelper(root,item);
+}
+
+bool BST::PrintInOrderHelper(BNode *&subroot) const
+{
+
+    if (subroot != nullptr)
+    {
+        // recurse the left subtree
+        PrintInOrderHelper(subroot->left);
+        // print the root
+        cout << subroot->data << "\t";
+        // recurse the right subtree
+        PrintInOrder(subroot->right);
+    }
+    // print the root
+    // recurse the right subtree
+}
+void BST::PrintInOrder() const
+{
+    cout << "<\t ";
+    PrintInOrderHelper(root);
+    cout << " >";
+}
 
 int main()
 {
+    BST b;
+    b.Insert(50);
+    b.PrintInOrder();cout<<endl;
+    b.Insert(25);
+    b.PrintInOrder();
+    cout << endl;
+    b.Insert(75);
+    b.PrintInOrder();
+    cout << endl;
     return 0;
 }

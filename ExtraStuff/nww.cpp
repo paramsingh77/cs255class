@@ -76,7 +76,7 @@ bool LinkedList::InsertInOrder2(int item)
         head = new Node(item, head);
     }
 
-    else if (temp != NULL && temp->data > item)
+    if (temp != NULL && temp->data > item)
     {
         Node *newHead = new Node(item, head);
     }
