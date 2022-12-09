@@ -6,6 +6,7 @@ int main(){
     
     int A[5]={2,3,4,5,7};
     int *p = A,*q=&A[4];
+    cout<<*q<<endl;
     cout<<p<<endl;
     for(int i = 0 ; i < 5 ; i++){
         cout<<*p<<endl;

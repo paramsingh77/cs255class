@@ -383,6 +383,16 @@ bool LinkedList::ReverseLinkedList()
 //     return true;
 // }
 
+LinkedList::LinkedList(const LinkedList& right){
+    if(right.head == NULL)
+        head == NULL;
+    else{
+        Node*rightCurr = right.head->data;
+        Node*leftCurr =  new Node(rightCurr->data);
+        
+    }
+}
+
 int main()
 {
     LinkedList obj;

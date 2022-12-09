@@ -22,7 +22,7 @@ public:
     friend Complex operator-(const Complex &x, const Complex &y);
     //urninary operator
     friend Complex operator-(const Complex);
-    Complex operator>>(const Complex&c);
+    friend istream& operator>>(istream& os, const Complex&c);
 };
 
 void operator*(Complex c)
@@ -54,17 +54,14 @@ Complex operator-(const Complex &x, const Complex &y)
 }
 
 Complex operator-(const Complex&  c){
-    Complex temp;
-    temp.a  =  -b;
-    temp.b = -b;
+    this.a = -c.a;
+    this.b = -c.b;
+    
     return temp;
 }
 
-Complex Complex:: operator>>(const Complex &c){
-      Complex temp;
-       cin>>temp.a;
-       cin>>temp.b;
-       return temp;
+istream& operator>>(istream&is,const Complex &c){
+      is >> c.a>>c.b;
 }
 int main()
 {
